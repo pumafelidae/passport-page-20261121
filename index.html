@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { width:1024px; height:1024px; background:#cfc8b8; font-family:Arial, Helvetica, sans-serif; color:#1a2f4a; }
+  .spread { display:flex; gap:10px; padding:52px 28px 0 28px; }
+  .page { width:470px; height:896px; background:#f7f3e8; border:1px solid #b9b09a; box-shadow:0 2px 10px rgba(0,0,0,.25); padding:26px 26px 18px 26px; position:relative; }
+  .pageno { position:absolute; bottom:8px; font-size:10px; color:#8a8270; }
+  .left .pageno { left:26px; } .right .pageno { right:26px; }
+
+  /* ---- shared header ---- */
+  .arms { text-align:center; margin-bottom:6px; }
+  .country { font-family:Georgia, 'Times New Roman', serif; font-size:25px; letter-spacing:4px; text-align:center; color:#1a2f4a; }
+  .country-sub { font-size:11px; letter-spacing:3px; text-align:center; color:#5a6a7a; margin-top:2px; }
+  .doc-type { font-size:12px; letter-spacing:3px; text-align:center; color:#1a2f4a; margin-top:6px; }
+  .rule-gold { border-top:2px solid #a8842c; border-bottom:1px solid #a8842c; height:4px; margin:10px 0 14px 0; }
+
+  /* ---- left page ---- */
+  .id-row { display:flex; gap:18px; }
+  .photo { width:150px; height:190px; border:1px solid #1a2f4a; flex:none; }
+  .id-side { flex:1; }
+  .fld { margin-bottom:11px; }
+  .fld .lab { font-size:9px; letter-spacing:1.5px; color:#5a6a7a; text-transform:uppercase; }
+  .fld .val { font-size:15px; font-weight:bold; margin-top:1px; }
+  .fld .val.big { font-size:17px; }
+  .grid2 { display:flex; gap:18px; margin-top:16px; }
+  .grid2 .col { flex:1; }
+  .sig { margin-top:16px; }
+  .sig .name { font-family:Georgia, serif; font-style:italic; font-size:19px; color:#22364f; border-bottom:1px solid #1a2f4a; padding-bottom:2px; }
+  .sig .lab { font-size:9px; letter-spacing:1.5px; color:#5a6a7a; margin-top:3px; }
+  .mrz { position:absolute; left:26px; right:26px; bottom:26px; background:#eae4d0; border-top:1px solid #b9b09a; padding:8px 10px 6px 10px; }
+  .mrz div { font-family:'Courier New', monospace; font-size:13px; letter-spacing:0.5px; color:#1a2f4a; white-space:nowrap; }
+
+  /* ---- right page ---- */
+  .visa-head { font-size:12px; letter-spacing:3px; text-align:center; }
+  .visa-sub { font-size:10px; letter-spacing:2px; text-align:center; color:#5a6a7a; margin-top:2px; }
+  .rule-thin { border-top:1px solid #1a2f4a; margin:10px 0 16px 0; }
+  .stamps { display:flex; flex-wrap:wrap; gap:14px; }
+  .stamp { width:200px; height:118px; border:2px solid; border-radius:8px; padding:8px 10px; text-align:center; position:relative; }
+  .stamp::after { content:""; position:absolute; inset:3px; border:1px solid; border-radius:5px; opacity:.55; }
+  .stamp .city { font-size:14px; font-weight:bold; letter-spacing:1px; margin-top:8px; }
+  .stamp .kind { font-size:11px; letter-spacing:2.5px; margin-top:6px; }
+  .stamp .date { font-size:14px; font-weight:bold; margin-top:6px; letter-spacing:1px; }
+  .stamp .code { font-size:9px; letter-spacing:1px; margin-top:4px; opacity:.8; }
+  .st-blue { color:#2456a6; border-color:#2456a6; transform:rotate(-1.4deg); }
+  .st-purple { color:#6a4a8f; border-color:#6a4a8f; transform:rotate(1.2deg); }
+  .st-green { color:#2e6b4f; border-color:#2e6b4f; transform:rotate(-0.8deg); }
+  .fee { margin-top:18px; border:2px solid #a33327; border-radius:6px; color:#a33327; padding:10px 12px; text-align:center; transform:rotate(0.7deg); }
+  .fee .t1 { font-size:14px; font-weight:bold; letter-spacing:2px; }
+  .fee .t2 { font-size:11px; letter-spacing:1.5px; margin-top:3px; }
+  .cond { margin-top:16px; border-left:3px solid #a8842c; padding-left:10px; }
+  .cond p { font-size:11.5px; line-height:1.5; color:#3a4a5a; }
+  .cond p + p { margin-top:4px; font-style:italic; color:#5a6a7a; }
+  .wm { position:absolute; inset:0; opacity:0.045; pointer-events:none; }
+</style></head><body>
+<div class="spread">
+
+  <!-- ============ LEFT: DATA PAGE ============ -->
+  <div class="page left">
+    <div class="arms">
+      <svg width="58" height="66" viewBox="0 0 58 66">
+        <path d="M29 2 L54 10 V34 C54 50 42 60 29 64 C16 60 4 50 4 34 V10 Z" fill="none" stroke="#1a2f4a" stroke-width="2"/>
+        <path d="M25 46 V22 L29 16 L33 22 V46 Z" fill="#1a2f4a"/>
+        <rect x="23" y="12" width="12" height="6" fill="#a8842c"/>
+        <path d="M29 8 L29 2 M22 10 L14 5 M36 10 L44 5" stroke="#a8842c" stroke-width="1.5"/>
+        <path d="M10 50 Q20 44 29 50 Q38 44 48 50" fill="none" stroke="#2456a6" stroke-width="2"/>
+        <path d="M12 55 Q21 49 29 55 Q37 49 46 55" fill="none" stroke="#2456a6" stroke-width="2"/>
+        <path d="M40 26 q6 -6 10 -2 q-4 6 -10 2" fill="#1a2f4a"/>
+      </svg>
+    </div>
+    <div class="country">REPUBLIC OF VESKAR</div>
+    <div class="country-sub">L&Yacute;&ETH;VELDI&ETH; VESKAR</div>
+    <div class="doc-type">PASSPORT &middot; VEGABR&Eacute;F</div>
+    <div class="rule-gold"></div>
+
+    <div class="id-row">
+      <svg class="photo" viewBox="0 0 150 190">
+        <rect width="150" height="190" fill="#cdd8de"/>
+        <path d="M0 190 V150 Q20 132 45 132 L105 132 Q130 132 150 150 V190 Z" fill="#22364f"/>
+        <path d="M55 132 L75 152 L95 132 L105 132 Q130 132 150 150 V190 H0 V150 Q20 132 45 132 Z" fill="#2c4568"/>
+        <path d="M62 138 L75 150 L88 138" fill="none" stroke="#a8842c" stroke-width="2"/>
+        <rect x="66" y="118" width="18" height="20" fill="#d9a986"/>
+        <ellipse cx="75" cy="78" rx="34" ry="42" fill="#d9a986"/>
+        <ellipse cx="42" cy="80" rx="6" ry="9" fill="#d9a986"/>
+        <ellipse cx="108" cy="80" rx="6" ry="9" fill="#d9a986"/>
+        <path d="M41 80 Q38 28 75 26 Q112 28 109 80 Q107 62 100 54 Q94 48 86 48 Q78 44 70 48 Q60 48 52 56 Q44 64 41 80 Z" fill="#3a3a3a"/>
+        <path d="M56 44 Q64 38 74 38 M84 40 Q92 42 97 48" stroke="#8a8a8a" stroke-width="2" fill="none"/>
+        <path d="M48 88 Q46 118 62 128 Q75 134 88 128 Q104 118 102 88 Q100 108 88 114 Q75 118 62 114 Q50 108 48 88 Z" fill="#6b6259"/>
+        <path d="M56 112 Q62 120 70 122 M84 118 Q90 112 94 106" stroke="#9a938a" stroke-width="1.5" fill="none"/>
+        <ellipse cx="62" cy="76" rx="4" ry="2.5" fill="#1a1a1a"/>
+        <ellipse cx="88" cy="76" rx="4" ry="2.5" fill="#1a1a1a"/>
+        <path d="M55 68 Q62 65 69 68 M81 68 Q88 65 95 68" stroke="#3a3a3a" stroke-width="2" fill="none"/>
+        <path d="M75 78 L73 92 Q75 95 78 92" stroke="#b98a5e" stroke-width="2" fill="none"/>
+        <path d="M68 104 Q75 107 82 104" stroke="#4a4038" stroke-width="2" fill="none"/>
+      </svg>
+      <div class="id-side">
+        <div class="fld"><div class="lab">Type / Tegund</div><div class="val">P</div></div>
+        <div class="fld"><div class="lab">Code / Land</div><div class="val">VES</div></div>
+        <div class="fld"><div class="lab">Passport No. / N&uacute;mer</div><div class="val big">VK 482 917</div></div>
+        <div class="fld"><div class="lab">Nationality / &THORN;j&oacute;&eth;erni</div><div class="val">VESKAR</div></div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="col">
+        <div class="fld"><div class="lab">Surname / &AElig;ttarnafn</div><div class="val">KETILSSON</div></div>
+        <div class="fld"><div class="lab">Given names / Forn&ouml;fn</div><div class="val">EINAR</div></div>
+        <div class="fld"><div class="lab">Date of birth / F&aelig;dd</div><div class="val">12 MAR 1988</div></div>
+        <div class="fld"><div class="lab">Place of birth / F&aelig;&eth;ingarsta&eth;ur</div><div class="val">HAVNVIK</div></div>
+      </div>
+      <div class="col">
+        <div class="fld"><div class="lab">Sex / Kyn</div><div class="val">M</div></div>
+        <div class="fld"><div class="lab">Date of issue / &Uacute;tg&aacute;fa</div><div class="val">14 JAN 2026</div></div>
+        <div class="fld"><div class="lab">Date of expiry / Gildir til</div><div class="val">14 JAN 2036</div></div>
+        <div class="fld"><div class="lab">Authority / Yfirvald</div><div class="val">HAVNVIK PASSPORT OFFICE</div></div>
+      </div>
+    </div>
+
+    <div class="sig">
+      <div class="name">Einar Ketilsson</div>
+      <div class="lab">HOLDER&rsquo;S SIGNATURE / UNDIRSKRIFT</div>
+    </div>
+
+    <div class="mrz">
+      <div>P&lt;VESKETILSSON&lt;&lt;EINAR&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div>
+      <div>VK482917&lt;0VES8803126M3601143&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;02</div>
+    </div>
+    <div class="pageno">2</div>
+  </div>
+
+  <!-- ============ RIGHT: VISA / STAMP PAGES ============ -->
+  <div class="page right">
+    <svg class="wm" width="470" height="896" viewBox="0 0 470 896">
+      <g fill="none" stroke="#1a2f4a" stroke-width="2">
+        <path d="M120 300 v-70 l10 -12 10 12 v70 Z"/><rect x="126" y="212" width="18" height="10"/>
+        <path d="M350 650 v-70 l10 -12 10 12 v70 Z"/><rect x="356" y="562" width="18" height="10"/>
+      </g>
+    </svg>
+    <div class="visa-head">VISAS</div>
+    <div class="visa-sub">VEGABR&Eacute;F &middot; STAMPS &amp; ENDORSEMENTS</div>
+    <div class="rule-thin"></div>
+
+    <div class="stamps">
+      <div class="stamp st-green">
+        <div class="city">HAVNVIK</div>
+        <div class="kind">DEPARTURE</div>
+        <div class="date">21 JAN 2026</div>
+        <div class="code">VESKAR &middot; EXIT 04</div>
+      </div>
+      <div class="stamp st-blue">
+        <div class="city">BERGEN</div>
+        <div class="kind">ARRIVAL</div>
+        <div class="date">21 JAN 2026</div>
+        <div class="code">NORWAY &middot; PORT 12</div>
+      </div>
+      <div class="stamp st-blue">
+        <div class="city">BERGEN</div>
+        <div class="kind">DEPARTURE</div>
+        <div class="date">28 JAN 2026</div>
+        <div class="code">NORWAY &middot; PORT 12</div>
+      </div>
+      <div class="stamp st-purple">
+        <div class="city">REYKJAVIK</div>
+        <div class="kind">ARRIVAL</div>
+        <div class="date">28 JAN 2026</div>
+        <div class="code">ICELAND &middot; AIR 03</div>
+      </div>
+      <div class="stamp st-purple">
+        <div class="city">REYKJAVIK</div>
+        <div class="kind">DEPARTURE</div>
+        <div class="date">09 FEB 2026</div>
+        <div class="code">ICELAND &middot; AIR 03</div>
+      </div>
+      <div class="stamp st-green">
+        <div class="city">HAVNVIK</div>
+        <div class="kind">ARRIVAL</div>
+        <div class="date">09 FEB 2026</div>
+        <div class="code">VESKAR &middot; ENTRY 04</div>
+      </div>
+    </div>
+
+    <div class="fee">
+      <div class="t1">LIGHTHOUSE DUES &mdash; 12 SK &mdash; PAID</div>
+      <div class="t2">HAVNVIK HARBOUR OFFICE &middot; 14 JAN 2026</div>
+    </div>
+
+    <div class="cond">
+      <p><b>CONDITION:</b> The holder may not land on the Skarholm bird sanctuary without a warden&rsquo;s permit.</p>
+      <p>Skilyr&eth;i: Eigandi m&aacute; ekki st&iacute;ga &aacute; land &aacute; Skarholm fuglaverndarsv&aelig;&eth;i &aacute;n leyfi var&eth;ar.</p>
+    </div>
+    <div class="pageno">3</div>
+  </div>
+
+</div>
+</body></html>
